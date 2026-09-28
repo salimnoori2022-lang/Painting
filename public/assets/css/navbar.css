@@ -1,0 +1,464 @@
+:root {
+    --gold: #b88316;
+    --gold-light: #e7bd57;
+    --blue: #4267b2;
+    --dark: #101010;
+    --text: #555555;
+}
+
+/*---------------------------------------
+  BRAND / LOGO
+-----------------------------------------*/
+
+.navbar-default {
+    min-height: 80px;
+    background: #ffffff;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.075);
+    margin-bottom: 0;
+}
+
+.navbar-default>.container {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-header {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    float: none;
+}
+
+.brand {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 15px;
+    margin: 0;
+    text-decoration: none;
+}
+
+.logo-h {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    display: block;
+}
+
+.brand-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.brand-title {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: var(--dark);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.brand .blue-text {
+    color: var(--blue);
+}
+
+.p1 {
+    display: block;
+    margin: 4px 0 0;
+    padding: 0;
+    color: #69531f;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+/*---------------------------------------
+  NAVIGATION
+-----------------------------------------*/
+
+.navbar-default .navbar-collapse {
+    border: 0;
+}
+
+.navbar-default .navbar-nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar-default .navbar-nav>li {
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+}
+
+.navbar-default .navbar-nav>li>a.nav-item-link {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 10px;
+    color: var(--text);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.navbar-default .navbar-nav>li>a.nav-item-link:hover,
+.navbar-default .navbar-nav>li>a.nav-item-link:focus {
+    color: var(--dark) !important;
+    background: transparent;
+}
+
+.navbar-default .navbar-nav>li>a.logout-trigger {
+    color: #69531f !important;
+}
+
+.navbar-default .navbar-nav>li>a.logout-trigger:hover {
+    color: var(--dark) !important;
+}
+
+/*---------------------------------------
+  APPOINTMENT BUTTON
+-----------------------------------------*/
+
+.navbar-default .navbar-nav>li.appointment-btn {
+    min-height: 80px;
+    margin: 0 0 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-default .navbar-nav>li.appointment-btn>a.appointment-link {
+    display: inline-block;
+    height: auto;
+    padding: 11px 18px;
+    border-radius: 3px;
+    background: #a5c422;
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-default .navbar-nav>li.appointment-btn>a.appointment-link:hover,
+.navbar-default .navbar-nav>li.appointment-btn>a.appointment-link:focus {
+    background: var(--blue) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/*---------------------------------------
+  TOP INFORMATION BAR
+-----------------------------------------*/
+
+.site-top-bar {
+    min-height: 45px;
+    background: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.site-top-bar p,
+.site-top-bar span {
+    color: #747474;
+    font-size: 12px;
+}
+
+.site-top-bar p {
+    line-height: 24px;
+    padding-top: 12px;
+}
+
+.site-top-bar span {
+    display: inline-block;
+    padding: 11px 15px;
+    line-height: 24px;
+}
+
+.site-top-bar span i {
+    margin-right: 5px;
+    color: #a5c422;
+}
+
+.site-top-bar .date-icon {
+    padding-right: 19px;
+    padding-left: 19px;
+    border-right: 1px solid #f2f2f2;
+    border-left: 1px solid #f2f2f2;
+}
+
+.site-top-bar a {
+    color: #747474;
+}
+
+.site-top-bar a:hover {
+    color: #a5c422;
+}
+
+.site-top-bar .logout-wrapper {
+    margin-left: 15px;
+    padding: 0;
+}
+
+.site-top-bar .logout-wrapper form {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.site-top-bar .logout-wrapper .logout-link {
+    padding: 0;
+    color: #69531f;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.site-top-bar .logout-wrapper .logout-link:hover {
+    color: var(--dark);
+}
+
+/*---------------------------------------
+  DESKTOP NAVIGATION
+-----------------------------------------*/
+
+@media (min-width: 768px) {
+    .navbar-default .container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar-default .navbar-collapse {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 1;
+        height: 80px;
+        padding: 0;
+    }
+
+    .navbar-default .navbar-nav.navbar-right {
+        float: none !important;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    .navbar-default .navbar-toggle {
+        display: none;
+    }
+}
+
+/*---------------------------------------
+  TABLET
+-----------------------------------------*/
+
+@media (max-width: 1200px) {
+    .navbar-default .navbar-nav>li>a.nav-item-link {
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 11px;
+    }
+
+    .navbar-default .navbar-nav>li.appointment-btn {
+        margin-left: 8px;
+    }
+
+    .navbar-default .navbar-nav>li.appointment-btn>a.appointment-link {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    .site-top-bar p {
+        padding-top: 0;
+    }
+
+    .site-top-bar span {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .site-top-bar .date-icon {
+        padding-right: 0;
+        padding-left: 0;
+        border: 0;
+    }
+
+    .brand {
+        gap: 10px;
+        padding-right: 5px;
+        padding-left: 0;
+    }
+
+    .brand-title {
+        font-size: 19px;
+    }
+
+    .p1 {
+        font-size: 9px;
+    }
+}
+
+/*---------------------------------------
+  MOBILE NAVIGATION
+-----------------------------------------*/
+
+@media (max-width: 767px) {
+    .site-top-bar {
+        padding-bottom: 10px;
+    }
+
+    .site-top-bar .text-align-right {
+        text-align: left;
+    }
+
+    .site-top-bar span {
+        display: inline-block;
+        padding-left: 0;
+        padding-right: 12px;
+        line-height: 20px;
+    }
+
+    .site-top-bar .logout-wrapper {
+        margin-left: 0;
+    }
+
+    .navbar-default {
+        min-height: 80px;
+    }
+
+    .navbar-default>.container {
+        display: block;
+        min-height: 80px;
+    }
+
+    .navbar-header {
+        width: 100%;
+        min-height: 80px;
+        justify-content: space-between;
+    }
+
+    .brand {
+        height: 80px;
+        padding-left: 0;
+        gap: 9px;
+    }
+
+    .logo-h {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .brand-title {
+        font-size: 18px;
+    }
+
+    .p1 {
+        font-size: 8px;
+        letter-spacing: 0.9px;
+    }
+
+    .navbar-default .navbar-toggle {
+        display: block;
+        float: right;
+        margin: 21px 0 0;
+        padding: 9px 10px;
+        border: 0;
+        background: transparent;
+    }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background: transparent;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        width: 24px;
+        height: 2px;
+        background: var(--dark);
+    }
+
+    .navbar-default .navbar-collapse {
+        width: 100%;
+        padding: 0;
+        background: #ffffff;
+        border-top: 1px solid #f2f2f2;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-default .navbar-nav {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar-default .navbar-nav>li {
+        display: block;
+        min-height: auto;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    .navbar-default .navbar-nav>li>a.nav-item-link {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 13px 15px;
+        line-height: 1.4;
+    }
+
+    .navbar-default .navbar-nav>li.appointment-btn {
+        display: block;
+        min-height: auto;
+        margin: 0;
+        padding: 10px 15px;
+    }
+
+    .navbar-default .navbar-nav>li.appointment-btn>a.appointment-link {
+        display: block;
+        padding: 13px 18px;
+        text-align: center;
+    }
+}
+
+/*---------------------------------------
+  SMALL MOBILE DEVICES
+-----------------------------------------*/
+
+@media (max-width: 480px) {
+    .brand-title {
+        font-size: 16px;
+    }
+
+    .p1 {
+        font-size: 7px;
+        letter-spacing: 0.7px;
+    }
+
+    .logo-h {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+    }
+
+    .site-top-bar span {
+        font-size: 11px;
+    }
+}
