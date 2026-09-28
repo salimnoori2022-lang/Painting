@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'Posts';
+    protected $table = 'posts';
 
     protected $fillable = [
         'title',
@@ -19,7 +19,6 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class, 'post_id');
-
     }
 
     public function likes()
