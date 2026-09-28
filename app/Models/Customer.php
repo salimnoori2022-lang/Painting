@@ -11,7 +11,7 @@ class Customer extends Model
 
     use HasFactory;
 
-    protected $tabel = 'customers';
+    protected $table = 'customers';
 
     public function user()
     {

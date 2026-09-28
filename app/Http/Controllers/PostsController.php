@@ -20,23 +20,22 @@ class PostsController extends Controller
 
     public function storepost(Request $req)
     {
+        $validated = $req->validate([
+            'Image' => 'required|image|mimes:jpeg,png,gif,webp|max:5120',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'date' => 'required|date',
+        ]);
+
         $image = $req->file('Image');
         $imagename = time().'.'.$image->extension();
         $image->move(public_path('images'), $imagename);
 
-        $title = $req->title;
-        $description = $req->description;
-
-        $date = $req->date;
-
         $post = new Post;
-
-        $post->title = $title;
+        $post->title = $validated['title'];
         $post->imagename = $imagename;
-        $post->description = $description;
-
-        $post->date = $date;
-
+        $post->description = $validated['description'];
+        $post->date = $validated['date'];
         $post->save();
 
         return back()->with('post_added', 'A New Post has been posted successfylly.');
@@ -55,8 +54,14 @@ class PostsController extends Controller
     {
 
         $post = Post::find($id);
-        unlink(public_path('images').'/'.$post->imagename);
-        $post->delete();
+
+        if ($post && $post->imagename && file_exists(public_path('images/'.$post->imagename))) {
+            @unlink(public_path('images/'.$post->imagename));
+        }
+
+        if ($post) {
+            $post->delete();
+        }
 
         return back()->with('post_deleted', 'Post has been deleted successfully!!!');
     }

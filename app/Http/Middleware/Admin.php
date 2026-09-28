@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +16,12 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user=Auth::User();
-        if($user->id!==1){
-            return back();
+        $user = Auth::user();
+
+        if (! $user || $user->type !== 'Admin') {
+            abort(403, 'Unauthorized: Admin access required.');
         }
+
         return $next($request);
     }
 }
