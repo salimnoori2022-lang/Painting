@@ -21,16 +21,26 @@ class UserController extends Controller
 
     }
    
-    public function updaterole(Request $request){
-         $user = User::findOrFail($request->input('id'));
+ public function updaterole(Request $request)
+{
+    // ۱. اعتبارسنجی دقیق داده‌های ورودی
+    $validated = $request->validate([
+        'id'   => 'required|exists:users,id', // مطمئن می‌شویم کاربر وجود دارد
+        'name' => 'required|string|max:255',
+        'type' => ['required', Rule::in(['Admin', 'User', 'Customer'])], // فقط نقش‌های مجاز (این لیست را بر اساس سیستم خود تغییر دهید)
+    ]);
 
+    // ۲. پیدا کردن کاربر با ID معتبر
+    $user = User::findOrFail($validated['id']);
 
-           $user->name = $request->input('name');
-           $user->type = $request->input('type');
+    // ۳. بروزرسانی اطلاعات
+    $user->name = $validated['name'];
+    $user->type = $validated['type'];
+    $user->save();
 
-             $user->save();
-           return redirect()->back()->with('user_adit', 'کاربر با موفقیت بروزرسانی شد.');
-    }
+    // ۴. بازگشت به صفحه قبل با کلید سشن اصلاح شده (user_edit)
+    return redirect()->back()->with('user_edit', 'کاربر با موفقیت بروزرسانی شد.');
+}
 
     public function deleteuser($id){
 
