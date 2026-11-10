@@ -23,7 +23,7 @@ class PostsController extends Controller
         $validated = $req->validate([
             'Image' => 'required|image|mimes:jpeg,png,gif,webp|max:5120',
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|max:255',
             'date' => 'required|date',
         ]);
 
